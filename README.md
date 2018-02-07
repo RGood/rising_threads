@@ -2,7 +2,7 @@
 
 This is the spiritual successor to the original rising threads bot, developed for reddit.com
 
-# Description
+## Description
 
 The basic concept of this bot is to look at a new post and determine whether or not it is likely to become popular. The process for doing this is as follows:
 
@@ -15,7 +15,7 @@ The basic concept of this bot is to look at a new post and determine whether or 
 7. If a post inserted in the data-structure ends up in a position better than this ratio, flag it as a probable popular post.
 8. Post the flagged submission to reddit.
 
-# Prerequisites
+## Prerequisites
 
 - Flask
 - Pymongo
@@ -23,8 +23,10 @@ The basic concept of this bot is to look at a new post and determine whether or 
 - PRAW
 - A MongoDB instance
 
-# Other Info
+## More Info
 
 License: MIT
 
 Author: The1RGood / Randy Goodman
+
+Contact: randy@kindofabigdeal.org

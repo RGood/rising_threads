@@ -15,6 +15,11 @@ The basic concept of this bot is to look at a new post and determine whether or 
 7. If a post inserted in the data-structure ends up in a position better than this ratio, flag it as a probable popular post.
 8. Post the flagged submission to reddit.
 
+## To Run
+
+From the main directory:    
+```python3 rising_threads/main.py```
+
 ## Prerequisites
 
 - Python 3.5

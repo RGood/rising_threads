@@ -17,6 +17,7 @@ The basic concept of this bot is to look at a new post and determine whether or 
 
 ## Prerequisites
 
+- Python 3.5
 - Flask
 - Pymongo
 - Sklearn

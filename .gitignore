@@ -1,2 +1,8 @@
 */__pycache__
 *.cfg
+bin
+lib
+include
+local
+pip-selfcheck.json
+share

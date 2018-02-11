@@ -11,9 +11,9 @@ from lib.predictor import *
 import pymongo
 
 config = configparser.ConfigParser()
-config.read('../rt_info.cfg')
+config.read('rt_info.cfg')
 
-db_client = pymongo.MongoClient(config.get('Mongo Data','mongo_address'), config.get('Mongo Data','mongo_port'))
+db_client = pymongo.MongoClient(config.get('Mongo Data','mongo_address'), int(config.get('Mongo Data','mongo_port')))
 db = db_client['rising_threads']
 coll = db['posts']
 

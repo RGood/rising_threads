@@ -10,6 +10,7 @@ class NewReader:
 		self.predictor = predictor
 		self.subreddit = self.reddit.subreddit('risingthreads')
 		self.user_cache = ExpiringDict(max_len=1000000, max_age_seconds=86400)
+		self.subreddit_cache = ExpiringDict(max_len=1000000, max_age_seconds=86400)
 
 	def stream_all_posts(self):
 		counter = 0
@@ -19,13 +20,15 @@ class NewReader:
 					try:
 						if(not self.user_cache.__contains__(post.author.name)):
 							self.user_cache[post.author.name] = post.author
+						if(not self.subreddit_cache.__contains__(post.subreddit.name)):
+							self.subreddit_cache[post.subreddit.name] = post.subreddit
 						entry = {
 							'title_length': len(post.title),
 							'time': post.created_utc,
-							'sub_count': post.subreddit.subscribers,
-							'active_users': post.subreddit.accounts_active,
-							'name_hash': hash(post.subreddit.name),
-							'subreddit': post.subreddit.display_name,
+							'sub_count': self.subreddit_cache[post.subreddit.name].subscribers,
+							'active_users': self.subreddit_cache[post.subreddit.name].accounts_active,
+							'name_hash': hash(self.subreddit_cache[post.subreddit.name].name),
+							'subreddit': self.subreddit_cache[post.subreddit.name].display_name,
 							'author_link': self.user_cache[post.author.name].link_karma,
 							'author_comment': self.user_cache[post.author.name].comment_karma,
 							'age': time.time() - post.created_utc,
